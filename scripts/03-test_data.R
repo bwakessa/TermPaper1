@@ -10,6 +10,9 @@
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
 
 #### Test data ####
+# test
+#   - all cells are either non-negative 
+#      - this also implicitly tests that there are no empty cells 
+#        (i.e., all "-" have been replaces by 0's)  

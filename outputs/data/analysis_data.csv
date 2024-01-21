@@ -1,20 +1,126 @@
-width,length,flying_time
-70,111,1.83
-57,127,2.32
-59,92,2.05
-70,75,1.1
-62,112,2.32
-68,103.5,0.5
-58,108,1.7
-79,114,0.86
-56,186,3.42
-87,68,1.37
-50,118,2.68
-49,186,1.83
-61,116,1.32
-60,127,1
-56,184,2.79
-69,124,1.4
-60,95,1.12
-44,137,1.28
-63,125,1.35
+Site Code,Location*,01-01-2023,01-02-2023,01-03-2023,01-04-2023,01-05-2023,01-06-2023,01-07-2023,01-08-2023,01-09-2023,01-10-2023,01-11-2023
+A007,Jameson Ave. South of Laxton Ave.,0,0,0,0,0,0,164,572,486,940,664
+A215,Dufferin St. South of Claver Ave.,58,0,0,0,0,0,0,0,0,0,0
+A016,Ridge Hill Dr. Westbound West of Old Park Rd.,0,0,0,0,0,0,537,504,359,134,305
+A017,Caledonia Rd. Southbound North of Rogers Rd.,0,0,0,0,0,0,0,640,519,310,349
+A018,Gladstone Ave. Southbound South of Cross St.,0,62,587,496,424,228,835,821,576,484,598
+A037,Main St. Northbound South of Swanwick Ave.,0,12,65,38,60,54,95,71,66,67,218
+A055,Mimico Ave. Westbound West of Station Rd.,0,201,361,343,544,369,672,501,386,83,217
+A250,Kipling Ave. Northbound North of Rowntree Rd.,820,284,493,256,363,346,66,0,0,0,0
+A251,Humberwood Blvd. South of Pinecone Dr.,665,399,605,300,451,472,87,0,0,0,0
+A252,Bloor St. W. Westbound Near 4034 Bloor St. W.,653,722,1271,700,568,980,464,0,0,0,0
+A253,Allanhurst Dr. Westbound Near Mulham Place,156,88,113,149,148,97,13,0,0,0,0
+A254,Burnhamthorpe Rd. West of Dundas St. W.,284,155,176,141,209,152,58,0,0,0,0
+A255,Norseman St. Near Lothian Ave.,616,327,417,43,260,288,102,0,0,0,0
+A256,Dundas St. W. Eastbound East of Watkinson Ave.,282,49,129,55,170,166,101,0,0,0,0
+A258,Keele St. Southbound Near Nashville Ave.,329,93,43,106,123,244,73,0,0,0,0
+A259,Emmett Ave. Eastbound Near 75 Emmett Ave.,164,88,145,86,111,151,22,0,0,0,0
+A260,Keele St. Northbound North of Wandle Ave.,1139,725,1268,258,666,858,123,0,0,0,0
+A261,Giltspur Dr. Westbound Near 120 Giltspur Dr.,216,147,132,177,177,174,30,0,0,0,0
+A262,Weston Rd. South of Burgundy Court.,1033,684,628,534,476,681,139,0,0,0,0
+A263,Duncanwoods Dr. West of Gracedale Blvd.,158,117,183,117,148,181,14,0,0,0,0
+A264,Neptune Dr. Eastbound West of Bathurst St.,142,142,126,75,56,111,15,0,0,0,0
+A265,Glengrove Ave. W. Westbound West of Glen Castle St.,171,116,153,180,308,253,56,0,0,0,0
+A266,Ossington Ave. Northbound North of Churchill Ave.,397,321,282,332,482,409,425,9,0,0,0
+A267,College St. Westbound Near Sheridan Ave.,194,121,132,53,149,117,239,0,0,0,0
+A119,Dundas St. W. Westbound Near Carlyle St.,162,146,171,109,93,130,279,8,0,0,0
+A169,Queens Quay W. Eastbound East of Bathurst St.,109,30,37,63,63,63,136,2,0,0,0
+A268,Bloor St. E. Westbound East of Castle Frank Rd.,209,242,246,190,298,147,189,8,0,0,0
+A269,Howland Ave. Southbound South of Wells St.,123,90,176,47,94,250,225,8,0,0,0
+A270,Yonge St. Northbound Near Glen Elm Ave.,807,552,988,730,1003,1137,695,0,0,0,0
+A271,Russell Hill Rd. Northbound North of Coulson Ave.,523,424,566,371,702,1390,414,0,0,0,0
+A272,Alexander St. Eastbound East of Yonge St.,6,4,8,5,0,7,7,0,0,0,0
+A273,Sherbourne St. Southbound South of Wellesley St. E.,411,228,372,300,429,378,582,11,0,0,0
+A274,Dundas St. E. Eastbound West of Boulton Ave.,86,121,177,110,106,152,191,47,0,0,0
+A275,Carlaw Ave. Southbound South of Queen St. E.,183,114,104,103,100,93,0,43,0,0,0
+A276,Overlea Blvd. Eastbound East of William Morgan Dr.,545,569,586,375,407,422,685,0,0,0,0
+A277,Fenn Ave. Northbound North of Gordon Rd.,280,243,334,234,223,157,188,0,0,0,0
+A278,Don Mills Rd. Southbound North of Overlea Blvd.,864,760,789,576,1374,468,583,0,0,0,0
+A279,Fenelon Dr. Northbound Near Karen Rd.,273,174,147,150,153,115,138,31,0,0,0
+A280,Old Sheppard Ave. Eastbound East of Ladner Dr.,215,257,286,175,234,230,305,62,0,0,0
+A281,Van Horne Ave. Eastbound Near Silas Hill Dr.,208,376,214,151,228,208,258,40,0,0,0
+A069,Denison Ave. Southbound South of Grange Ave.,0,8,402,427,394,218,1020,787,597,754,656
+A283,Hilda Ave. Northbound North of Drewry Ave.,695,731,1103,660,952,703,386,0,0,0,0
+A284,Gerrard St. E. Eastbound East of Beaton Ave.,297,265,411,206,406,349,360,118,0,0,0
+A285,Wolverleigh Blvd. Westbound West of Glebemount Ave.,45,28,38,47,31,24,24,11,0,0,0
+A286,Midland Ave. Northbound South of Aylesworth Ave.,493,432,280,399,694,534,558,0,0,0,0
+A287,Blantyre Ave. Northbound South of Swanwick Ave.,48,54,49,43,45,44,61,0,0,0,0
+A288,Midland Ave. Southbound North of Tara Ave.,789,661,432,466,600,377,511,0,0,0,0
+A289,Dorcot Ave. Westbound West of Lyon Heights Rd.,68,35,39,57,77,72,57,0,0,0,0
+A290,Finch Ave. E. Westbound West of Birchmount Rd.,1494,1443,1002,1433,1507,489,879,0,0,0,0
+A291,Glendower Circuit Southbound Near Nearwood Gate,49,13,22,26,27,41,28,0,0,0,0
+A292,Brimley Rd. Northbound North of Pitfield Rd.,1293,1029,876,965,1099,412,1048,0,0,0,0
+A293,Ingleton Blvd. Eastbound East of Presidents Court,44,23,29,26,39,39,27,0,0,0,0
+A294,Morningside Ave. Northbound North of Danzig St.,232,130,165,67,178,147,203,0,0,0,0
+A295,Dormington Dr. Northbound North of Ellesmere Rd.,58,41,32,34,28,24,37,0,0,0,0
+A296,Morrish Rd. Southbound Near Starfire Dr.,166,206,281,309,206,105,80,0,0,0,0
+A297,Littles Rd. Southbound South of Rangeley Dr.,102,53,70,85,43,61,42,0,0,0,0
+A072,Essex St. Westbound West of Christie St.,0,0,0,0,0,0,0,123,122,82,133
+A174,Queen St. E. Eastbound Near Sackville St.,0,165,364,334,317,274,479,592,443,443,341
+A207,Parkside Dr. South of Algonquin Ave.,1815,1751,1553,1729,2653,2068,3502,3357,2696,2129,2517
+A282,Beecroft Rd. Southbound Near Lorraine Dr.,786,1121,1127,1015,1327,996,808,597,1236,476,106
+A298,Thistle Down Blvd. Westbound East of Albion Rd.,0,247,166,157,103,25,41,31,42,0,0
+A299,Martin Grove Rd. Northbound South of Eglinton Ave. W.,0,435,1149,627,780,775,1133,873,819,570,725
+A300,Lansdowne Ave. Southbound Near 108 Lansdowne Ave.,0,157,160,87,62,75,10,0,0,0,0
+A301,Pritchard Ave. Westbound Near Batavia Ave.,0,183,719,308,320,324,446,428,392,322,381
+A302,Sheppard Ave. W. Westbound West of Keele St.,0,192,589,169,672,638,641,908,651,652,429
+A303,Driftwood Ave. Eastbound East of Jane St.,0,24,346,220,285,175,243,162,165,141,120
+A304,Avenue Rd. Northbound North of Elwood Blvd.,0,631,780,630,760,1422,1852,1820,1181,880,468
+A305,Bloor St. W. Westbound West of Clinton St.,0,110,62,91,80,55,43,48,0,0,198
+A306,Davisville Ave. Westbound East of Yonge St.,0,14,155,321,280,229,373,220,328,194,191
+A307,Logan Ave. Northbound Near Wolfrey Ave.,0,78,817,314,621,505,818,708,866,280,692
+A308,Harrison Rd. Northbound Near Vernham Ave.,0,9,36,52,44,46,52,50,45,11,7
+A309,Sloane Ave. Southbound Near Draycott Dr.,0,72,204,54,129,94,177,162,243,51,125
+A310,Freshmeadow Dr. Westbound West of Applegate Cres.,0,41,170,70,136,70,118,112,100,63,77
+A311,Senlac Rd. Northbound North of Elynhill Dr.,0,20,88,72,82,52,66,49,26,0,4
+A312,Danforth Rd. Eastbound East of Huntington Ave.,0,55,312,272,325,219,535,540,489,309,333
+A313,Lawrence Ave. E. Eastbound Near Canlish Rd.,0,16,1385,1163,1103,1088,1452,1437,1587,1668,2049
+A314,Birchmount Rd. Northbound North of Bay Mills Blvd.,0,82,594,636,910,441,1636,1340,907,749,1013
+A315,Tapscott Rd. Westbound West of Blackwell Ave.,0,0,639,558,569,290,439,418,414,383,257
+A316,Orton Park Rd. Southbound South of Ellesmere Rd.,0,10,339,189,177,252,326,343,237,245,319
+A317,Lawrence Ave. E. Westbound West of Port Union Rd.,0,4,393,275,339,127,266,465,293,365,329
+A318,Kipling Ave. Southbound North of Coolhurst Dr.,0,0,0,0,0,0,1568,1292,1427,866,1060
+A319,Mount Olive Dr. Southbound North of Dorward Dr.,0,0,0,0,0,0,202,249,172,140,136
+A320,Kipling Ave. Northbound Near Gracey Blvd.,0,0,0,0,0,0,146,258,204,292,217
+A321,La Rose Ave. Eastbound East of Timothy Court,0,0,0,0,0,0,210,474,440,901,947
+A322,Twenty First St. Northbound North of Lake Shore Blvd. W.,0,0,0,0,0,0,179,339,234,277,210
+A323,Lake Shore Blvd. W. Westbound West of Thirty Fifth St.,0,0,0,0,0,0,150,301,407,821,644
+A324,Indian Road Cres. Northbound North of Humberside Ave.,0,0,0,0,0,0,318,682,508,371,333
+A325,McCormack St. Westbound Near Leigh St.,0,0,0,0,0,0,301,331,384,453,214
+A326,Maple Leaf Dr. Eastbound Near Bourdon Ave.,0,0,0,0,0,0,356,489,542,1007,944
+A327,Sheppard Ave. W. Westbound Near Blairville Rd.,0,0,0,0,0,0,62,527,377,268,205
+A328,Highview Ave. Southbound North of Maurice Coulter Mews,0,0,0,0,0,0,589,236,437,197,194
+A329,Jane St. Northbound North of Driftwood Ave.,0,0,0,0,0,0,1279,2267,1617,796,913
+A330,Norfinch Dr. Northbound North of Finch Ave. W.,0,0,0,0,0,0,733,1208,833,580,709
+A331,Lawrence Ave. W. Westbound West of Varna Dr.,0,0,0,0,0,0,1468,1979,1622,858,903
+A332,Dufferin St. Northbound North of Preston Rd.,0,0,0,0,0,0,0,145,79,21,48
+A333,Eireann Quay Northbound South of Queens Quay,0,0,0,0,0,0,0,158,771,1283,1564
+A334,Lower Jarvis St. Northbound South of The Esplanade,0,0,0,0,0,0,0,0,449,5248,3757
+A335,Mount Pleasant Rd. Northbound North of South Dr.,0,0,0,0,0,0,0,809,1045,896,0
+A336,Avenue Rd. Northbound North of Heath St. W.,0,0,0,0,0,0,152,361,308,147,0
+A337,Mount Pleasant Rd. Northbound Near Balliol St.,0,0,0,0,0,0,24,42,50,72,29
+A338,Bond St. Northbound North of Shuter St.,0,0,0,0,0,0,0,24,71,68,48
+A339,Pembroke St. Southbound South of Dundas St. E.,0,0,0,0,0,0,0,237,360,241,241
+A340,Durant Ave. Southbound South of Plains Rd.,0,0,0,0,0,0,0,134,242,137,151
+A341,Coxwell Ave. Northbound North of Cosburn Ave.,0,0,0,0,0,0,0,736,686,872,663
+A342,Denlow Blvd. Westbound Near Hamlet Gate,0,0,0,0,0,0,39,175,63,57,43
+A343,Ranleigh Ave. Eastbound East of Yonge St.,0,0,0,0,0,0,16,108,103,61,52
+A344,Brookbanks Dr. Westbound West of Parkwoods Village Dr.,0,0,0,0,0,0,133,856,751,502,379
+A345,Gateway Blvd. Southbound Near Grenoble Dr.,0,0,0,0,0,0,0,180,340,157,155
+A346,Don Mills Rd. Southbound South of Seneca Hill Dr.,0,0,0,0,0,0,0,844,1020,1392,1647
+A347,Shaughnessy Blvd. Southbound Near Rochelle Cres.,0,0,0,0,0,0,0,355,2191,853,1579
+A348,Hilda Ave. Northbound Near Crossen Dr.,0,0,0,0,0,0,65,854,741,356,467
+A350,Victoria Park Ave. Northbound South of Kingston Rd.,0,0,0,0,0,0,0,290,492,482,458
+A351,Bowmore Rd. Southbound South of Fairmount Cres.,0,0,0,0,0,0,0,3,4,7,6
+A352,St. Clair Ave. E. Westbound West of Maybourne Ave.,0,0,0,0,0,0,0,272,259,566,787
+A353,Mason Rd. Southbound South of Glenda Rd.,0,0,0,0,0,0,0,608,526,316,404
+A354,Ellesmere Rd. Eastbound East of Warden Ave.,0,0,0,0,0,0,341,1324,848,473,84
+A355,Birkdale Rd. Southbound Near Abbottswood Rd.,0,0,0,0,0,0,14,66,37,37,50
+A356,Pharmacy Ave. Northbound Near 3200 Pharmacy Ave.,0,0,0,0,0,0,78,362,254,254,175
+A357,Sheppard Ave. E. Eastbound East of Bay Mills Blvd.,0,0,0,0,0,0,200,1014,1133,997,831
+A358,Finch Ave. E. Eastbound East of Brimley Rd.,0,0,0,0,0,0,0,146,203,277,275
+A359,White Heather Blvd. Southbound Near Big Red Ave.,0,0,0,0,0,0,0,117,79,50,111
+A360,Markham Rd. Southbound South of Greencedar Circuit,0,0,0,0,0,0,0,1024,1602,1074,1107
+A361,Brimorton Dr. Westbound West of Gaitwin Place,0,0,0,0,0,0,0,178,322,633,552
+A362,Military Trail Westbound Near Bobmar Rd.,0,0,0,0,0,0,0,283,306,329,227
+A363,Nightstar Rd. Westbound Near Pogonia St.,0,0,0,0,0,0,0,139,158,168,131

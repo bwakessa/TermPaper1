@@ -154,6 +154,54 @@ summed_data |> kable()
 
 # Results
 
+## ASE Charge Statistics
+
+Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (@tbl-finaldataset). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#| label: fig-charges
+#| fig-cap: Number of ASE charges per month in Toronto
+
+### Bar plot data ###
+
+# convert wide dataset to long dataset
+summed_data_long <- summed_data |>
+  pivot_longer(
+    cols = -c(" "),
+    names_to = "Month",
+    values_to = "Number of Charges"
+  )
+
+# Retrieve desired columns and filter out "Total" row
+summed_data_long <- summed_data_long[, c("Month", "Number of Charges")] |> 
+  filter(row_number() != 1)
+
+# ggplot orders the months in alphabetical order, so must set something called the "factor level"
+summed_data_long$Month <- factor(summed_data_long$Month, levels = c("Jan 2023", 
+                                                                    "Feb 2023", 
+                                                                    "Mar 2023", 
+                                                                    "Apr 2023", 
+                                                                    "May 2023",  
+                                                                    "Jun 2023", 
+                                                                    "Jul 2023", 
+                                                                    "Aug 2023", 
+                                                                    "Sep 2023", 
+                                                                    "Oct 2023", 
+                                                                    "Nov 2023"))
+
+
+# barplot
+summed_data_long |> 
+  ggplot(aes(x = Month, y = `Number of Charges`)) +
+  geom_bar(stat = "identity") + 
+  theme_minimal() +
+  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 2.5) +
+  labs(x = "Month", y = "Number of Charges")
+
+```
+
+
+
 \newpage
 
 # References {#sec-references}

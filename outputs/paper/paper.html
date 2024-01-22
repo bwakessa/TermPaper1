@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.542">
+<meta name="generator" content="quarto-1.4.547">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -73,7 +73,10 @@ div.csl-indent {
   <li><a href="#sec-preliminaryplanning" id="toc-sec-preliminaryplanning" class="nav-link" data-scroll-target="#sec-preliminaryplanning"><span class="header-section-number">2.1</span> Preliminary Planning</a></li>
   <li><a href="#sec-asecharges" id="toc-sec-asecharges" class="nav-link" data-scroll-target="#sec-asecharges"><span class="header-section-number">2.2</span> Automated Speed Enforcement (ASE) Charges</a></li>
   </ul></li>
-  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a></li>
+  <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
+  <ul class="collapse">
+  <li><a href="#ase-charge-statistics" id="toc-ase-charge-statistics" class="nav-link" data-scroll-target="#ase-charge-statistics"><span class="header-section-number">3.1</span> ASE Charge Statistics</a></li>
+  </ul></li>
   <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">4</span> References</a></li>
   </ul>
 </nav>
@@ -414,7 +417,25 @@ Table&nbsp;4: Final dataset ready for analysis
 </section>
 <section id="results" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
+<section id="ase-charge-statistics" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="ase-charge-statistics"><span class="header-section-number">3.1</span> ASE Charge Statistics</h2>
+<p>Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (<a href="#tbl-finaldataset" class="quarto-xref">Table&nbsp;4</a>). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-charges" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-charges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="paper_files/figure-html/fig-charges-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-charges-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Number of ASE charges per month in Toronto
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
+</section>
 </section>
 <section id="sec-references" class="level1 unnumbered" data-number="4">
 
@@ -609,7 +630,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      return note.innerHTML;
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
     }
   }
   for (var i=0; i<xrefs.length; i++) {

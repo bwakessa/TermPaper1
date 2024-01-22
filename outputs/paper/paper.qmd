@@ -197,7 +197,6 @@ summed_data_long |>
   theme_minimal() +
   geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 2.5) +
   labs(x = "Month", y = "Number of Charges")
-
 ```
 
 

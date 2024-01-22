@@ -59,10 +59,24 @@ div.csl-indent {
 
 </head>
 
-<body class="fullcontent">
+<body>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#task-formulation-approach" id="toc-task-formulation-approach" class="nav-link active" data-scroll-target="#task-formulation-approach"><span class="header-section-number">1</span> Task Formulation &amp; Approach</a></li>
+  <li><a href="#sec-data" id="toc-sec-data" class="nav-link" data-scroll-target="#sec-data"><span class="header-section-number">2</span> Data</a>
+  <ul class="collapse">
+  <li><a href="#sec-preliminaryplanning" id="toc-sec-preliminaryplanning" class="nav-link" data-scroll-target="#sec-preliminaryplanning"><span class="header-section-number">2.1</span> Preliminary Planning</a></li>
+  <li><a href="#sec-asecharges" id="toc-sec-asecharges" class="nav-link" data-scroll-target="#sec-asecharges"><span class="header-section-number">2.2</span> Automated Speed Enforcement (ASE) Charges</a></li>
+  </ul></li>
+  <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">3</span> References</a></li>
+  </ul>
+</nav>
+</div>
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
@@ -96,8 +110,8 @@ div.csl-indent {
 </header>
 
 
-<section id="task-formulation-approach" class="level2">
-<h2 class="anchored" data-anchor-id="task-formulation-approach">Task Formulation &amp; Approach</h2>
+<section id="task-formulation-approach" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Task Formulation &amp; Approach</h1>
 <p>The City of Toronto is avid on regulating and enforcing traffic laws, especially speeding laws. The city first introduced the Automated Speed Enforcement (ASE) system in 2019, and saw the first 50 ASE cameras being installed in July of 2020.</p>
 <p>Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (<span class="citation" data-cites="OntarioCourts2024">Cheif of Justice (<a href="#ref-OntarioCourts2024" role="doc-biblioref">2024</a>)</span>), the charges are as shown in the following table:</p>
 <div class="cell" data-waring="false">
@@ -141,12 +155,14 @@ Table&nbsp;1: Penalty Rates by amount of speed above limit
 </div>
 <p>In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue using <a href="#tbl-chargerates" class="quarto-xref">Table&nbsp;1</a>.</p>
 </section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>Data used in this paper are gathered from Open Data Toronto through the <code>opendatatoronto</code> library (<span class="citation" data-cites="citeOpenDataToronto">Gelfand (<a href="#ref-citeOpenDataToronto" role="doc-biblioref">2022</a>)</span>). One dataset, <code>Automated Speed Enforcement (ASE) Charges</code> (<span class="citation" data-cites="citeDataset">Data (<a href="#ref-citeDataset" role="doc-biblioref">2024</a>)</span>), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using R (<span class="citation" data-cites="citeR">R Core Team (<a href="#ref-citeR" role="doc-biblioref">2023</a>)</span>), using functionalities from packages including __</p>
+<section id="sec-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data</h1>
+<p>Data used in this paper are gathered from Open Data Toronto through the <code>opendatatoronto</code> library (<span class="citation" data-cites="citeOpenDataToronto">Gelfand (<a href="#ref-citeOpenDataToronto" role="doc-biblioref">2022</a>)</span>). One dataset, <code>Automated Speed Enforcement (ASE) Charges</code> (<span class="citation" data-cites="citeDataset">Data (<a href="#ref-citeDataset" role="doc-biblioref">2024</a>)</span>), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using <code>R</code> (<span class="citation" data-cites="citeR">R Core Team (<a href="#ref-citeR" role="doc-biblioref">2023</a>)</span>), using functionalities from packages including <code>tidyverse</code> (<span class="citation" data-cites="citeTidyverse">Wickham et al. (<a href="#ref-citeTidyverse" role="doc-biblioref">2019</a>)</span>), <code>dplyr</code> (<span class="citation" data-cites="citeDplyr">Wickham et al. (<a href="#ref-citeDplyr" role="doc-biblioref">2023a</a>)</span>), <code>ggplot2</code> (<span class="citation" data-cites="citeGgplot2">Wickham et al. (<a href="#ref-citeGgplot2" role="doc-biblioref">2023b</a>)</span>), and <code>janitor</code> (<span class="citation" data-cites="citeJanitor">Firke (<a href="#ref-citeJanitor" role="doc-biblioref">2023</a>)</span>). Details of the data cleaning process and analysis are detailed below.</p>
+<section id="sec-preliminaryplanning" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="sec-preliminaryplanning"><span class="header-section-number">2.1</span> Preliminary Planning</h2>
 <p>The dataset we’re interested in is very simple. The only feature it needs to contain is the number of ASE charges. We can delimit this feature in many ways, but we will do it by months. For example, the final cleaned &amp; transformed dataset could look something like this:</p>
-<div class="cell" data-waring="false">
-<div id="tbl-sampledataset" class="cell quarto-float anchored" data-waring="false">
+<div class="cell">
+<div id="tbl-sampledataset" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sampledataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Example Dataset
@@ -186,25 +202,246 @@ Table&nbsp;2: Example Dataset
 </div>
 <p>The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. We could then graph something like this:</p>
 <p><img src="images/histogram_sketch-01.png" class="img-fluid" width="593"></p>
+</section>
+<section id="sec-asecharges" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="sec-asecharges"><span class="header-section-number">2.2</span> Automated Speed Enforcement (ASE) Charges</h2>
+<p>The dataset published by Transportation Services, Toronto (<span class="citation" data-cites="citeDataset">Data (<a href="#ref-citeDataset" role="doc-biblioref">2024</a>)</span>) captures the number charges that each uniquely-identified ASE camera has accumulated across the city. It uses columns to split the accumulated charges by month, for each individual camera. The data we will use for analysis in this paper will capture January 2023 onwards. Note that the retrieved data only covers up to November 2023, so December 2023 cannot be included in our analysis. Below is a sample of the cleaned data with the relevant features:</p>
+<div class="cell">
+<div id="tbl-samplecleandata" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-samplecleandata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Sample of cleaned ASE charge data
+</figcaption>
+<div aria-describedby="tbl-samplecleandata-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 29%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Site Code</th>
+<th style="text-align: left;">Location*</th>
+<th style="text-align: left;">Jan 2023</th>
+<th style="text-align: left;">Feb 2023</th>
+<th style="text-align: left;">Mar 2023</th>
+<th style="text-align: left;">Apr 2023</th>
+<th style="text-align: left;">May 2023</th>
+<th style="text-align: left;">Jun 2023</th>
+<th style="text-align: left;">Jul 2023</th>
+<th style="text-align: left;">Aug 2023</th>
+<th style="text-align: left;">Sep 2023</th>
+<th style="text-align: left;">Oct 2023</th>
+<th style="text-align: left;">Nov 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">A007</td>
+<td style="text-align: left;">Jameson Ave. South of Laxton Ave.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">164</td>
+<td style="text-align: left;">572</td>
+<td style="text-align: left;">486</td>
+<td style="text-align: left;">940</td>
+<td style="text-align: left;">664</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A215</td>
+<td style="text-align: left;">Dufferin St.&nbsp;South of Claver Ave.</td>
+<td style="text-align: left;">58</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A016</td>
+<td style="text-align: left;">Ridge Hill Dr.&nbsp;Westbound West of Old Park Rd.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">537</td>
+<td style="text-align: left;">504</td>
+<td style="text-align: left;">359</td>
+<td style="text-align: left;">134</td>
+<td style="text-align: left;">305</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A017</td>
+<td style="text-align: left;">Caledonia Rd. Southbound North of Rogers Rd.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">519</td>
+<td style="text-align: left;">310</td>
+<td style="text-align: left;">349</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">A018</td>
+<td style="text-align: left;">Gladstone Ave. Southbound South of Cross St.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">62</td>
+<td style="text-align: left;">587</td>
+<td style="text-align: left;">496</td>
+<td style="text-align: left;">424</td>
+<td style="text-align: left;">228</td>
+<td style="text-align: left;">835</td>
+<td style="text-align: left;">821</td>
+<td style="text-align: left;">576</td>
+<td style="text-align: left;">484</td>
+<td style="text-align: left;">598</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">A037</td>
+<td style="text-align: left;">Main St.&nbsp;Northbound South of Swanwick Ave.</td>
+<td style="text-align: left;">0</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">65</td>
+<td style="text-align: left;">38</td>
+<td style="text-align: left;">60</td>
+<td style="text-align: left;">54</td>
+<td style="text-align: left;">95</td>
+<td style="text-align: left;">71</td>
+<td style="text-align: left;">66</td>
+<td style="text-align: left;">67</td>
+<td style="text-align: left;">218</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>We can sum each row by column to achieve a structure that satisfies what we planned in <a href="#sec-preliminaryplanning" class="quarto-xref">Section&nbsp;2.1</a>.</p>
+<div class="cell">
+<div id="tbl-finaldataset" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-finaldataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;4: Final dataset ready for analysis
+</figcaption>
+<div aria-describedby="tbl-finaldataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 10%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">total_charges</th>
+<th style="text-align: right;">Jan 2023</th>
+<th style="text-align: right;">Feb 2023</th>
+<th style="text-align: right;">Mar 2023</th>
+<th style="text-align: right;">Apr 2023</th>
+<th style="text-align: right;">May 2023</th>
+<th style="text-align: right;">Jun 2023</th>
+<th style="text-align: right;">Jul 2023</th>
+<th style="text-align: right;">Aug 2023</th>
+<th style="text-align: right;">Sep 2023</th>
+<th style="text-align: right;">Oct 2023</th>
+<th style="text-align: right;">Nov 2023</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">NUMBER OF CHARGES</td>
+<td style="text-align: right;">345908</td>
+<td style="text-align: right;">20955</td>
+<td style="text-align: right;">19752</td>
+<td style="text-align: right;">29888</td>
+<td style="text-align: right;">22721</td>
+<td style="text-align: right;">29800</td>
+<td style="text-align: right;">25557</td>
+<td style="text-align: right;">38605</td>
+<td style="text-align: right;">41553</td>
+<td style="text-align: right;">40968</td>
+<td style="text-align: right;">38638</td>
+<td style="text-align: right;">37471</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <div style="page-break-after: always;"></div>
 </section>
-<section id="references" class="level1 unnumbered">
+</section>
+<section id="sec-references" class="level1 unnumbered" data-number="3">
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-OntarioCourts2024" class="csl-entry" role="listitem">
 Cheif of Justice, Office of the. 2024. <span>“Schedule d Highway Traffic Act Speeding – Community Safety Zone.”</span> <a href="https://www.ontariocourts.ca/ocj/provincial-offences/set-fines/set-fines-i/schedule-43/">https://www.ontariocourts.ca/ocj/provincial-offences/set-fines/set-fines-i/schedule-43/</a>.
 </div>
 <div id="ref-citeDataset" class="csl-entry" role="listitem">
 Data, Toronto Open. 2024. <span>“Automated Speed Enforcement (ASE) Charges.”</span> <a href="https://open.toronto.ca/dataset/automated-speed-enforcement-ase-charges/">https://open.toronto.ca/dataset/automated-speed-enforcement-ase-charges/</a>.
 </div>
+<div id="ref-citeJanitor" class="csl-entry" role="listitem">
+Firke, Sam. 2023. <em>Janitor: Simple Tools for Examining and Cleaning Dirty Data</em>. <a href="https://github.com/sfirke/janitor">https://github.com/sfirke/janitor</a>.
+</div>
 <div id="ref-citeOpenDataToronto" class="csl-entry" role="listitem">
 Gelfand, Sharla. 2022. <em>Opendatatoronto: Access the City of Toronto Open Data Portal</em>. <a href="https://sharlagelfand.github.io/opendatatoronto/">https://sharlagelfand.github.io/opendatatoronto/</a>.
 </div>
 <div id="ref-citeR" class="csl-entry" role="listitem">
 R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+<div id="ref-citeTidyverse" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-citeDplyr" class="csl-entry" role="listitem">
+Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis Vaughan. 2023a. <span>“Dplyr: A Grammar of Data Manipulation.”</span> <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
+</div>
+<div id="ref-citeGgplot2" class="csl-entry" role="listitem">
+———. 2023b. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->

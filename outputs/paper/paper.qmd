@@ -4,6 +4,8 @@ author: "Birmadu Wakessa"
 date: 23 January 2024
 date-format: long
 format: html
+number-sections: true
+toc: true
 bibliography: references.bib
 ---
 
@@ -15,7 +17,7 @@ library(janitor)
 library(knitr)
 ```
 
-## Task Formulation & Approach
+# Task Formulation & Approach
 
 The City of Toronto is avid on regulating and enforcing traffic laws, especially speeding laws. The city first introduced the Automated Speed Enforcement (ASE) system in 2019, and saw the first 50 ASE cameras being installed in July of 2020.
 
@@ -31,18 +33,20 @@ charge_rates <- tibble(
   `Penalty` = c("$5.00/km", "$7.50/km", "$12.00/km", "Court Settled")
 )
 
-charge_rates %>% kable()
+charge_rates |> kable()
 ```
 
 In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue using @tbl-chargerates.
 
-## Data
+# Data {#sec-data}
 
-Data used in this paper are gathered from Open Data Toronto through the `opendatatoronto` library (@citeOpenDataToronto). One dataset, `Automated Speed Enforcement (ASE) Charges` (@citeDataset), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using R (@citeR), using functionalities from packages including __
+Data used in this paper are gathered from Open Data Toronto through the `opendatatoronto` library (@citeOpenDataToronto). One dataset, `Automated Speed Enforcement (ASE) Charges` (@citeDataset), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using `R` (@citeR), using functionalities from packages including `tidyverse` (@citeTidyverse), `dplyr` (@citeDplyr), `ggplot2` (@citeGgplot2), and `janitor` (@citeJanitor). Details of the data cleaning process and analysis are detailed below.
+
+## Preliminary Planning {#sec-preliminaryplanning}
 
 The dataset we're interested in is very simple. The only feature it needs to contain is the number of ASE charges. We can delimit this feature in many ways, but we will do it by months. For example, the final cleaned & transformed dataset could look something like this:
 
-```{r, echo=FALSE, waring=FALSE, message=FALSE}
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
 #| label: tbl-sampledataset
 #| tbl-cap: "Example Dataset"
 
@@ -51,13 +55,105 @@ sample_table <- tibble(
   `Number of Charges` = c(974, 1294, 1106, "...")
 )
 
-sample_table %>% kable()
+sample_table |> kable()
 ```
 
 The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. We could then graph something like this:
 
 ![](images/histogram_sketch-01.png){width="593"}
 
+## Automated Speed Enforcement (ASE) Charges {#sec-asecharges}
+
+The dataset published by Transportation Services, Toronto (@citeDataset) captures the number charges that each uniquely-identified ASE camera has accumulated across the city. It uses columns to split the accumulated charges by month, for each individual camera. The data we will use for analysis in this paper will capture January 2023 onwards. Note that the retrieved data only covers up to November 2023, so December 2023 cannot be included in our analysis. Below is a sample of the cleaned data with the relevant features:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#| label: tbl-samplecleandata
+#| tbl-cap: Sample of cleaned ASE charge data
+
+raw_data <- 
+  list_package_resources("537923d1-a6c8-4b9c-9d55-fa47d9d7ddab") |>
+  filter(tolower(format) %in% c('xlsx')) |>
+  filter(row_number() == 1) |>
+  get_resource()
+
+#### Clean & Transform data ####
+
+# In the original dataset, dates were represented as the number of days since 30 December 1899.
+# This function converts those numbers to strings representing the corresponding date
+convert_to_date <- function(days) {
+  
+  origin_date <- as.Date("1899-12-30")
+  numeric_value <- as.numeric(days)
+  as.Date(numeric_value, origin = origin_date)
+}
+
+# Get list of date strings instead of number of days since 30 December 1899
+new_names <- sapply(names(raw_data), function(x) { 
+  if (grepl("^[0-9]+$", x)) {
+    format(convert_to_date(x), "%d-%m-%Y")
+  } else {
+    x
+  }
+})
+names(raw_data) <- new_names
+
+clean_data <- raw_data |>
+  # Select the relevant columns; Location of speed camera, and number of charges accumulated each month
+  select(`Site Code`, `Location*`, `01-01-2023`, `01-02-2023`, `01-03-2023`,
+         `01-04-2023`, `01-05-2023`, `01-06-2023`, `01-07-2023`, `01-08-2023`,
+         `01-09-2023`, `01-10-2023`, `01-11-2023`) |>
+  
+  # Keep only the rows which have at operated for at least 1 month in from January to November 2023
+  filter(if_any(c(`01-01-2023`, `01-02-2023`, `01-03-2023`,
+                  `01-04-2023`, `01-05-2023`, `01-06-2023`, `01-07-2023`, `01-08-2023`,
+                  `01-09-2023`, `01-10-2023`, `01-11-2023`), ~ . != "-")) |>
+  
+  # Replace empty cells (i.e., only containing "-") with 0's
+  mutate(across(c(`01-01-2023`, `01-02-2023`, `01-03-2023`,
+                  `01-04-2023`, `01-05-2023`, `01-06-2023`, `01-07-2023`, `01-08-2023`,
+                  `01-09-2023`, `01-10-2023`, `01-11-2023`), ~ if_else(. == "-", "0", .))) |>
+  
+  # Rename Columns to readable strings
+  rename(`Jan 2023` = `01-01-2023`, `Feb 2023` = `01-02-2023`, `Mar 2023` = `01-03-2023`, 
+         `Apr 2023` = `01-04-2023`, `May 2023` = `01-05-2023`, `Jun 2023` = `01-06-2023`, 
+         `Jul 2023` = `01-07-2023`, `Aug 2023` = `01-08-2023`, `Sep 2023` = `01-09-2023`, 
+         `Oct 2023` = `01-10-2023`, `Nov 2023` = `01-11-2023`)
+
+head(clean_data) |> kable()
+```
+
+We can sum each row by column to achieve a structure that satisfies what we planned in @sec-preliminaryplanning.
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#| label: tbl-finaldataset
+#| tbl-cap: Final dataset ready for analysis
+
+# Convert date columns to numeric to be summed 
+clean_data <- clean_data |>
+  mutate(across(c(`Jan 2023`, `Feb 2023`, `Mar 2023`,
+                  `Apr 2023`, `May 2023`, `Jun 2023`, `Jul 2023`, `Aug 2023`,
+                  `Sep 2023`, `Oct 2023`, `Nov 2023`), as.numeric))
+
+# Create a column of the total charges in 2023
+clean_data$total_charges <- rowSums(clean_data[, c("Jan 2023", "Feb 2023", "Mar 2023",
+                                                   "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023",
+                                                   "Sep 2023", "Oct 2023", "Nov 2023")], na.rm = TRUE)
+
+# Sum up each row by month
+summed_data <- clean_data |>
+  summarise(across(c(`Jan 2023`, `Feb 2023`, `Mar 2023`,
+                     `Apr 2023`, `May 2023`, `Jun 2023`, `Jul 2023`, `Aug 2023`,
+                     `Sep 2023`, `Oct 2023`, `Nov 2023`, total_charges), sum, na.rm = TRUE))
+
+summed_data$" " <- "NUMBER OF CHARGES"
+
+# Reorder columns
+summed_data <- summed_data[, c(" ", "total_charges", "Jan 2023", "Feb 2023", "Mar 2023",
+                                                   "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023",
+                                                   "Sep 2023", "Oct 2023", "Nov 2023")]
+summed_data |> kable()
+```
+
 \newpage
 
-# References
+# References {#sec-references}

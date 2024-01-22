@@ -58,7 +58,7 @@ sample_table <- tibble(
 sample_table |> kable()
 ```
 
-The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. 
+The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto.
 
 ## Automated Speed Enforcement (ASE) Charges {#sec-asecharges}
 
@@ -151,6 +151,8 @@ summed_data <- summed_data[, c(" ", "Total", "Jan 2023", "Feb 2023", "Mar 2023",
                                                    "Sep 2023", "Oct 2023", "Nov 2023")]
 summed_data |> kable()
 ```
+
+# Results
 
 \newpage
 

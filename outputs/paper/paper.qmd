@@ -1,9 +1,36 @@
 ---
-title: "placeholder"
+title: Efficacy of Toronto's Automated Speed Enforcement Cameras
 author: "Birmadu Wakessa"
-date: today
+date: 23 January 2024
 date-format: long
 format: pdf
-number-sections: true
 bibliography: references.bib
 ---
+
+```{r, include=FALSE, warning=FALSE, message=FALSE}
+### Workspace Setup ###
+library(tidyverse)
+library(opendatatoronto)
+library(janitor)
+```
+
+## Task Formulation & Approach
+
+The City of Toronto is avid on regulating and enforcing traffic laws, especially speeding laws. The city first introduced the Automated Speed Enforcement (ASE) system in 2019, and saw the first 50 ASE cameras being installed in July of 2020.
+
+Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (@OntarioCourts2024), the charges are as follows:
+
+|                              |               |
+|------------------------------|---------------|
+| 1-19 km/h above speed limit  | \$5.00/km     |
+| 20-29 km/h above speed limit | \$7.50/km     |
+| 30-49 km/h above speed limit | \$12.00/km    |
+| 50+ km/h above speed limit   | Court Settled |
+
+In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue.
+
+## Data
+
+\newpage
+
+# References

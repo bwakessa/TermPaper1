@@ -58,9 +58,7 @@ sample_table <- tibble(
 sample_table |> kable()
 ```
 
-The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. We could then graph something like this:
-
-![](images/histogram_sketch-01.png){width="593"}
+The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. 
 
 ## Automated Speed Enforcement (ASE) Charges {#sec-asecharges}
 
@@ -135,7 +133,7 @@ clean_data <- clean_data |>
                   `Sep 2023`, `Oct 2023`, `Nov 2023`), as.numeric))
 
 # Create a column of the total charges in 2023
-clean_data$total_charges <- rowSums(clean_data[, c("Jan 2023", "Feb 2023", "Mar 2023",
+clean_data$Total <- rowSums(clean_data[, c("Jan 2023", "Feb 2023", "Mar 2023",
                                                    "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023",
                                                    "Sep 2023", "Oct 2023", "Nov 2023")], na.rm = TRUE)
 
@@ -143,12 +141,12 @@ clean_data$total_charges <- rowSums(clean_data[, c("Jan 2023", "Feb 2023", "Mar 
 summed_data <- clean_data |>
   summarise(across(c(`Jan 2023`, `Feb 2023`, `Mar 2023`,
                      `Apr 2023`, `May 2023`, `Jun 2023`, `Jul 2023`, `Aug 2023`,
-                     `Sep 2023`, `Oct 2023`, `Nov 2023`, total_charges), sum, na.rm = TRUE))
+                     `Sep 2023`, `Oct 2023`, `Nov 2023`, Total), sum, na.rm = TRUE))
 
 summed_data$" " <- "NUMBER OF CHARGES"
 
 # Reorder columns
-summed_data <- summed_data[, c(" ", "total_charges", "Jan 2023", "Feb 2023", "Mar 2023",
+summed_data <- summed_data[, c(" ", "Total", "Jan 2023", "Feb 2023", "Mar 2023",
                                                    "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023",
                                                    "Sep 2023", "Oct 2023", "Nov 2023")]
 summed_data |> kable()

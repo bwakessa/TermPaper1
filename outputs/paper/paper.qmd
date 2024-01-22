@@ -12,37 +12,47 @@ bibliography: references.bib
 library(tidyverse)
 library(opendatatoronto)
 library(janitor)
+library(knitr)
 ```
 
 ## Task Formulation & Approach
 
 The City of Toronto is avid on regulating and enforcing traffic laws, especially speeding laws. The city first introduced the Automated Speed Enforcement (ASE) system in 2019, and saw the first 50 ASE cameras being installed in July of 2020.
 
-Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (@OntarioCourts2024), the charges are as follows:
+Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (@OntarioCourts2024), the charges are as shown in the following table:
 
-Table 1: Speeding Charges by Rate
+```{r, echo=FALSE, waring=FALSE, message=FALSE}
+#| label: tbl-chargerates
+#| tbl-cap: "Penalty Rates by amount of speed above limit"
 
-|                              |               |
-|------------------------------|---------------|
-| 1-19 km/h above speed limit  | \$5.00/km     |
-| 20-29 km/h above speed limit | \$7.50/km     |
-| 30-49 km/h above speed limit | \$12.00/km    |
-| 50+ km/h above speed limit   | Court Settled |
+charge_rates <- tibble(
+  `Speed Over Limit` = c("1-19 km/h above speed limit", "20-29 km/h above speed limit",
+                         "30-49 km/h above speed limit", "50+ km/h above speed limit"),
+  `Penalty` = c("$5.00/km", "$7.50/km", "$12.00/km", "Court Settled")
+)
 
-In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue.
+charge_rates %>% kable()
+```
+
+In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue using @tbl-chargerates.
 
 ## Data
 
-The data was gathered from Open Data Toronto (citeOpenDataToronto)
+Data used in this paper are gathered from Open Data Toronto through the `opendatatoronto` library (@citeOpenDataToronto). One dataset, `Automated Speed Enforcement (ASE) Charges` (@citeDataset), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using R (@citeR), using functionalities from packages including __
 
 The dataset we're interested in is very simple. The only feature it needs to contain is the number of ASE charges. We can delimit this feature in many ways, but we will do it by months. For example, the final cleaned & transformed dataset could look something like this:
 
-| Month         | Number of Charges |
-|---------------|-------------------|
-| January 2023  | 974               |
-| February 2023 | 1294              |
-| March 2023    | 1106              |
-| ...           | ...               |
+```{r, echo=FALSE, waring=FALSE, message=FALSE}
+#| label: tbl-sampledataset
+#| tbl-cap: "Example Dataset"
+
+sample_table <- tibble(
+  `Month` = c("January 2023", "February 2023", "March 2023", "..."),
+  `Number of Charges` = c(974, 1294, 1106, "...")
+)
+
+sample_table %>% kable()
+```
 
 The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. We could then graph something like this:
 

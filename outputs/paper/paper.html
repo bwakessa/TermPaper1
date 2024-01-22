@@ -99,60 +99,91 @@ div.csl-indent {
 <section id="task-formulation-approach" class="level2">
 <h2 class="anchored" data-anchor-id="task-formulation-approach">Task Formulation &amp; Approach</h2>
 <p>The City of Toronto is avid on regulating and enforcing traffic laws, especially speeding laws. The city first introduced the Automated Speed Enforcement (ASE) system in 2019, and saw the first 50 ASE cameras being installed in July of 2020.</p>
-<p>Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (<span class="citation" data-cites="OntarioCourts2024">Cheif of Justice (<a href="#ref-OntarioCourts2024" role="doc-biblioref">2024</a>)</span>), the charges are as follows:</p>
-<p>Table 1: Speeding Charges by Rate</p>
-<table class="table">
-<tbody>
-<tr class="odd">
-<td>1-19 km/h above speed limit</td>
-<td>$5.00/km</td>
-</tr>
-<tr class="even">
-<td>20-29 km/h above speed limit</td>
-<td>$7.50/km</td>
-</tr>
-<tr class="odd">
-<td>30-49 km/h above speed limit</td>
-<td>$12.00/km</td>
-</tr>
-<tr class="even">
-<td>50+ km/h above speed limit</td>
-<td>Court Settled</td>
-</tr>
-</tbody>
-</table>
-<p>In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue.</p>
-</section>
-<section id="data" class="level2">
-<h2 class="anchored" data-anchor-id="data">Data</h2>
-<p>The data was gathered from Open Data Toronto (citeOpenDataToronto)</p>
-<p>The dataset we’re interested in is very simple. The only feature it needs to contain is the number of ASE charges. We can delimit this feature in many ways, but we will do it by months. For example, the final cleaned &amp; transformed dataset could look something like this:</p>
-<table class="table">
+<p>Drivers who are caught speeding by a camera are tagged by their carplates, and are charged at different rates depending on their speed. As per the Ontario Court of Justice (<span class="citation" data-cites="OntarioCourts2024">Cheif of Justice (<a href="#ref-OntarioCourts2024" role="doc-biblioref">2024</a>)</span>), the charges are as shown in the following table:</p>
+<div class="cell" data-waring="false">
+<div id="tbl-chargerates" class="cell quarto-float anchored" data-waring="false">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-chargerates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Penalty Rates by amount of speed above limit
+</figcaption>
+<div aria-describedby="tbl-chargerates-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th>Month</th>
-<th>Number of Charges</th>
+<th style="text-align: left;">Speed Over Limit</th>
+<th style="text-align: left;">Penalty</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>January 2023</td>
-<td>974</td>
+<td style="text-align: left;">1-19 km/h above speed limit</td>
+<td style="text-align: left;">$5.00/km</td>
 </tr>
 <tr class="even">
-<td>February 2023</td>
-<td>1294</td>
+<td style="text-align: left;">20-29 km/h above speed limit</td>
+<td style="text-align: left;">$7.50/km</td>
 </tr>
 <tr class="odd">
-<td>March 2023</td>
-<td>1106</td>
+<td style="text-align: left;">30-49 km/h above speed limit</td>
+<td style="text-align: left;">$12.00/km</td>
 </tr>
 <tr class="even">
-<td>…</td>
-<td>…</td>
+<td style="text-align: left;">50+ km/h above speed limit</td>
+<td style="text-align: left;">Court Settled</td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>In this paper, we will investigate the efficacy of the ASE system in Toronto in 2023. We will take a look at how many charges were laid by ASE cameras per month, and compute interesting statistics and values like potential revenue using <a href="#tbl-chargerates" class="quarto-xref">Table&nbsp;1</a>.</p>
+</section>
+<section id="data" class="level2">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<p>Data used in this paper are gathered from Open Data Toronto through the <code>opendatatoronto</code> library (<span class="citation" data-cites="citeOpenDataToronto">Gelfand (<a href="#ref-citeOpenDataToronto" role="doc-biblioref">2022</a>)</span>). One dataset, <code>Automated Speed Enforcement (ASE) Charges</code> (<span class="citation" data-cites="citeDataset">Data (<a href="#ref-citeDataset" role="doc-biblioref">2024</a>)</span>), was used to analyze speeding charges enfored by the new ASE system across Toronto. Data was cleaned, transformed and analyzed using R (<span class="citation" data-cites="citeR">R Core Team (<a href="#ref-citeR" role="doc-biblioref">2023</a>)</span>), using functionalities from packages including __</p>
+<p>The dataset we’re interested in is very simple. The only feature it needs to contain is the number of ASE charges. We can delimit this feature in many ways, but we will do it by months. For example, the final cleaned &amp; transformed dataset could look something like this:</p>
+<div class="cell" data-waring="false">
+<div id="tbl-sampledataset" class="cell quarto-float anchored" data-waring="false">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-sampledataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Example Dataset
+</figcaption>
+<div aria-describedby="tbl-sampledataset-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<table class="do-not-create-environment cell table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Month</th>
+<th style="text-align: left;">Number of Charges</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">January 2023</td>
+<td style="text-align: left;">974</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">February 2023</td>
+<td style="text-align: left;">1294</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">March 2023</td>
+<td style="text-align: left;">1106</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">…</td>
+<td style="text-align: left;">…</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</figure>
+</div>
+</div>
 <p>The exact shape of the dataset can vary, but it must somehow communicate the total number of ASE charges per month in the city of Toronto. We could then graph something like this:</p>
 <p><img src="images/histogram_sketch-01.png" class="img-fluid" width="593"></p>
 <div style="page-break-after: always;"></div>
@@ -165,6 +196,15 @@ div.csl-indent {
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-OntarioCourts2024" class="csl-entry" role="listitem">
 Cheif of Justice, Office of the. 2024. <span>“Schedule d Highway Traffic Act Speeding – Community Safety Zone.”</span> <a href="https://www.ontariocourts.ca/ocj/provincial-offences/set-fines/set-fines-i/schedule-43/">https://www.ontariocourts.ca/ocj/provincial-offences/set-fines/set-fines-i/schedule-43/</a>.
+</div>
+<div id="ref-citeDataset" class="csl-entry" role="listitem">
+Data, Toronto Open. 2024. <span>“Automated Speed Enforcement (ASE) Charges.”</span> <a href="https://open.toronto.ca/dataset/automated-speed-enforcement-ase-charges/">https://open.toronto.ca/dataset/automated-speed-enforcement-ase-charges/</a>.
+</div>
+<div id="ref-citeOpenDataToronto" class="csl-entry" role="listitem">
+Gelfand, Sharla. 2022. <em>Opendatatoronto: Access the City of Toronto Open Data Portal</em>. <a href="https://sharlagelfand.github.io/opendatatoronto/">https://sharlagelfand.github.io/opendatatoronto/</a>.
+</div>
+<div id="ref-citeR" class="csl-entry" role="listitem">
+R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
 </div>
 </div></section></div></main>
 <!-- /main column -->

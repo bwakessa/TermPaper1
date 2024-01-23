@@ -1,7 +1,7 @@
 ---
 title: Efficacy of Toronto's Automated Speed Enforcement Cameras
 author: "Birmadu Wakessa"
-thanks: "Code and data are available at"
+thanks: "Code and data are available at: github.com/bwakessa/TorontoAutomatedSpeedEnforcement"
 date: 23 January 2024
 date-format: long
 abstract: Automated Speed Enforcement (ASE) charges laid across the City of Toronto in 2023. Based on the surface-level analysis on the number of charges laid per month, no systematic trends or unusual patterns were uncovered. The number of charges laid per month was approximately uniform, with a sharp increase starting in July due to the city implementing new cameras at multiple new sites.  
@@ -70,11 +70,7 @@ The dataset published by Transportation Services, Toronto (@citeDataset) capture
 #| label: tbl-samplecleandata
 #| tbl-cap: Sample of cleaned ASE charge data
 
-raw_data <- 
-  list_package_resources("537923d1-a6c8-4b9c-9d55-fa47d9d7ddab") |>
-  filter(tolower(format) %in% c('xlsx')) |>
-  filter(row_number() == 1) |>
-  get_resource()
+raw_data <- read_csv("../../inputs/data/raw_data.csv")
 
 #### Clean & Transform data ####
 

@@ -10,10 +10,12 @@
 
 #### Workspace setup ####
 library(tidyverse)
-# [...UPDATE THIS...]
 
 #### Simulate data ####
-# [...ADD CODE HERE...]
-
-
-
+simulated_data <-
+  tibble(
+    `Month` = c("Jan 2023", "Feb 2023", "Mar 2023",
+                "Apr 2023", "May 2023", "Jun 2023", "Jul 2023", "Aug 2023",
+                "Sep 2023", "Oct 2023", "Nov 2023", "Dec 2023"),
+    `Number of Charges` = sample(10000:20000, 12, replace=FALSE)
+  )

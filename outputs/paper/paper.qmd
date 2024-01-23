@@ -3,6 +3,7 @@ title: Efficacy of Toronto's Automated Speed Enforcement Cameras
 author: "Birmadu Wakessa"
 date: 23 January 2024
 date-format: long
+abstract: Automated Speed Enforcement (ASE) charges laid across the City of Toronto in 2023. Based on the surface-level analysis on the number of charges laid per month, no systematic trends or unusual patterns were uncovered. The number of charges laid per month was approximately uniform, with a sharp increase starting in July due to the city implementing new cameras at multiple new sites.  
 format: html
 number-sections: true
 toc: true
@@ -156,7 +157,7 @@ summed_data |> kable()
 
 ## ASE Charge Statistics
 
-Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (@tbl-finaldataset). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). Using the values on @tbl-chargerates, the minimum amount of money the city could have made in 2023 is \$5/km \* 1km \* 345908 = \$1,729,540, while the maximum amount of money the city could have made in 2023 is \$12/km * 49km * 345908 = 203,393,904.
+Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (@tbl-finaldataset). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). Using the values on @tbl-chargerates, the minimum amount of money the city could have made in 2023 is \$5/km \* 1km \* 345908 = \$1,729,540, while the maximum amount of money the city could have made in 2023 is \$12/km \* 49km \* 345908 = 203,393,904.
 
 ## Data Trends & Behaviours
 

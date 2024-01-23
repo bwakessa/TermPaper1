@@ -156,7 +156,11 @@ summed_data |> kable()
 
 ## ASE Charge Statistics
 
-Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (@tbl-finaldataset). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). 
+Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (@tbl-finaldataset). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). Using the values on @tbl-chargerates, the minimum amount of money the city could have made in 2023 is \$5/km \* 1km \* 345908 = \$1,729,540, while the maximum amount of money the city could have made in 2023 is \$12/km * 49km * 345908 = 203,393,904.
+
+## Data Trends & Behaviours
+
+Based on @fig-charges, we can see a sharp rise in July for the number of charges laid per month. This is due to the city implementing cameras at new sites, as seen in @tbl-samplecleandata at sites like A007, A016, and A017. Splitting the graph into the first and 2nd half of 2023, we can see in @fig-plotsplit that they each follow their own uniform distribution, with the first half having 2 peaks in March and May.
 
 ```{r, echo=FALSE, warning=FALSE, message=FALSE}
 #| label: fig-charges
@@ -196,10 +200,35 @@ summed_data_long |>
   geom_bar(stat = "identity") + 
   theme_minimal() +
   geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 2.5) +
-  labs(x = "Month", y = "Number of Charges")
+  labs(title = "ASE charges per Month", x = "Month", y = "Number of Charges") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
 
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+#| label: fig-plotsplit
+#| fig-cap: Number of ASE charges per month in Toronto
+#| fig-subcap: [January to June, July to November]
+#| layout-ncol: 2
 
+# barplot (Jan - Jun)
+summed_data_long |> filter(Month %in% c("Jan 2023", "Feb 2023", "Mar 2023", "Apr 2023", "May 2023", "Jun 2023")) |>
+  ggplot(aes(x = Month, y = `Number of Charges`)) +
+  geom_bar(stat = "identity") + 
+  theme_minimal() +
+  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 4.5) +
+  labs(x = "Month", y = "Number of Charges") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  
+# barplot (Jul - Nov)
+summed_data_long |> filter(Month %in% c("Jul 2023", "Aug 2023", "Sep 2023", "Oct 2023", "Nov 2023")) |>
+  ggplot(aes(x = Month, y = `Number of Charges`)) +
+  geom_bar(stat = "identity") + 
+  theme_minimal() +
+  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 4.5) +
+  labs(x = "Month", y = "Number of Charges") + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+```
 
 \newpage
 

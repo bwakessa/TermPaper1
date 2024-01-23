@@ -76,6 +76,7 @@ div.csl-indent {
   <li><a href="#results" id="toc-results" class="nav-link" data-scroll-target="#results"><span class="header-section-number">3</span> Results</a>
   <ul class="collapse">
   <li><a href="#ase-charge-statistics" id="toc-ase-charge-statistics" class="nav-link" data-scroll-target="#ase-charge-statistics"><span class="header-section-number">3.1</span> ASE Charge Statistics</a></li>
+  <li><a href="#data-trends-behaviours" id="toc-data-trends-behaviours" class="nav-link" data-scroll-target="#data-trends-behaviours"><span class="header-section-number">3.2</span> Data Trends &amp; Behaviours</a></li>
   </ul></li>
   <li><a href="#sec-references" id="toc-sec-references" class="nav-link" data-scroll-target="#sec-references"><span class="header-section-number">4</span> References</a></li>
   </ul>
@@ -419,7 +420,11 @@ Table&nbsp;4: Final dataset ready for analysis
 <h1 data-number="3"><span class="header-section-number">3</span> Results</h1>
 <section id="ase-charge-statistics" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="ase-charge-statistics"><span class="header-section-number">3.1</span> ASE Charge Statistics</h2>
-<p>Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (<a href="#tbl-finaldataset" class="quarto-xref">Table&nbsp;4</a>). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721).</p>
+<p>Between January and November 2023, there were a total of 345908 charges laid by ASE cameras across Toronto (<a href="#tbl-finaldataset" class="quarto-xref">Table&nbsp;4</a>). On average, there were 31446 charges per month, with a standard deviation of 7948. The months with the highest number of charges are: August (41553), September (40968), and October (38638). The months with the lowest number of charges are: February (19752), January (20955), and April (22721). Using the values on <a href="#tbl-chargerates" class="quarto-xref">Table&nbsp;1</a>, the minimum amount of money the city could have made in 2023 is $5/km * 1km * 345908 = $1,729,540, while the maximum amount of money the city could have made in 2023 is $12/km * 49km * 345908 = 203,393,904.</p>
+</section>
+<section id="data-trends-behaviours" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="data-trends-behaviours"><span class="header-section-number">3.2</span> Data Trends &amp; Behaviours</h2>
+<p>Based on <a href="#fig-charges" class="quarto-xref">Figure&nbsp;1</a>, we can see a sharp rise in July for the number of charges laid per month. This is due to the city implementing cameras at new sites, as seen in <a href="#tbl-samplecleandata" class="quarto-xref">Table&nbsp;3</a> at sites like A007, A016, and A017. Splitting the graph into the first and 2nd half of 2023, we can see in <a href="#fig-plotsplit" class="quarto-xref">Figure&nbsp;2</a> that they each follow their own uniform distribution, with the first half having 2 peaks in March and May.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-charges" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -433,6 +438,41 @@ Figure&nbsp;1: Number of ASE charges per month in Toronto
 </figure>
 </div>
 </div>
+</div>
+<div id="fig-plotsplit" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-plotsplit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-plotsplit" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plotsplit-1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-plotsplit-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="paper_files/figure-html/fig-plotsplit-1.png" class="img-fluid figure-img" data-ref-parent="fig-plotsplit" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-plotsplit-1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) January to June
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-plotsplit" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-plotsplit-2" class="quarto-figure quarto-figure-center quarto-float anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-plotsplit-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="paper_files/figure-html/fig-plotsplit-2.png" class="img-fluid figure-img" data-ref-parent="fig-plotsplit" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-plotsplit-2-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) July to November
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-plotsplit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: Number of ASE charges per month in Toronto
+</figcaption>
+</figure>
 </div>
 <div style="page-break-after: always;"></div>
 </section>

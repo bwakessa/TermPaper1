@@ -4,7 +4,7 @@ author: "Birmadu Wakessa"
 date: 23 January 2024
 date-format: long
 abstract: Automated Speed Enforcement (ASE) charges laid across the City of Toronto in 2023. Based on the surface-level analysis on the number of charges laid per month, no systematic trends or unusual patterns were uncovered. The number of charges laid per month was approximately uniform, with a sharp increase starting in July due to the city implementing new cameras at multiple new sites.  
-format: html
+format: pdf
 number-sections: true
 toc: true
 bibliography: references.bib

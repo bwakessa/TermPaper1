@@ -216,7 +216,7 @@ summed_data_long |> filter(Month %in% c("Jan 2023", "Feb 2023", "Mar 2023", "Apr
   ggplot(aes(x = Month, y = `Number of Charges`)) +
   geom_bar(stat = "identity") + 
   theme_minimal() +
-  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 4.5) +
+  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 2.5) +
   labs(x = "Month", y = "Number of Charges") + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
   
@@ -225,7 +225,7 @@ summed_data_long |> filter(Month %in% c("Jul 2023", "Aug 2023", "Sep 2023", "Oct
   ggplot(aes(x = Month, y = `Number of Charges`)) +
   geom_bar(stat = "identity") + 
   theme_minimal() +
-  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 4.5) +
+  geom_text(aes(label = `Number of Charges`), vjust = -0.5, size = 2.5) +
   labs(x = "Month", y = "Number of Charges") + 
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
